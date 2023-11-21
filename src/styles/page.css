@@ -1,59 +1,74 @@
-.pai{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #1c1c1c;
-    width: 100vw ;
-    height: 100vh  ;
-  }
-  .filho{
-    width: 700px ;
-    height: 500px  ;
-    border-radius: 20px;
-    margin-top: 150px;
-    background-color: #e6e6e6;
-    color: #1c1c1c;
-    padding-left: 10px;
-    margin-bottom: 6px;
-    overflow: hidden;
-    overflow-y: scroll;
-  }
-  .cabeçalho{
-    width: 100vw;
-    height: 10vh;
-    position: absolute;
-    top: 0;
-    background-color: #e6e6e6;
-    color: black;
-    text-align: center;
-    display: flex;
-    justify-content: space-between;
-    opacity: 0.9;
-  }
-  .formulario{
-    width: 700px;
-    display: flex;
-    justify-content: space-around;
-  }
-  .input{
-    margin-right: 25px;
-    border-radius: 5px;
-  }
-  .botao{
-    width: 100px;
-    border-radius: 5px;
-  
-  }
-  .botao:hover{
-    cursor: pointer;
-  }
-  .links{
-    color:#1c1c1c;
-    width:700px;
-    display:flex; 
-    justify-content:space-around;
-    text-decoration: none;
-    color: #1c1c1c;
-  }
+@charset "UTF-8";
+.pai {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #1c1c1c;
+  width: 100vw;
+  height: 100vh;
+}
+.pai .filho {
+  width: 700px;
+  height: 500px;
+  border-radius: 20px;
+  margin-top: 150px;
+  background-color: #e6e6e6;
+  color: #1c1c1c;
+  padding-left: 10px;
+  margin-bottom: 6px;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+.pai .cabeçalho {
+  width: 100vw;
+  height: 10vh;
+  position: absolute;
+  top: 0;
+  background-color: #e6e6e6;
+  color: black;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  opacity: 0.9;
+}
+.pai .formulario {
+  width: 700px;
+  display: flex;
+  justify-content: space-around;
+}
+.pai .input {
+  margin-right: 25px;
+  border-radius: 5px;
+}
+.pai .botao {
+  width: 100px;
+  border-radius: 5px;
+}
+.pai .botao:hover {
+  cursor: pointer;
+}
+.pai .links {
+  color: #1c1c1c;
+  width: 700px;
+  display: flex;
+  justify-content: space-around;
+  text-decoration: none;
+  color: #1c1c1c;
+}
 
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 24px;
+  }
+}
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  body {
+    font-size: 18px;
+  }
+}
+@media only screen and (min-width: 1025px) {
+  body {
+    font-size: 16px;
+  }
+}/*# sourceMappingURL=page.css.map */
