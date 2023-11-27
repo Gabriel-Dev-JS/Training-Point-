@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import { Link } from 'react-router-dom'
 import Interface from '../components/Interface'
-
+import '../styles/page.css'
 
 const Inferiores = () => {
 

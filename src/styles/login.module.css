@@ -39,3 +39,51 @@
 .botao:hover{
     background-color: #6d6d6d ;
 }
+@media all and (max-width: 600px) {
+    body {
+      font-size: 7px;
+    }
+  
+    .pai, .filho, .formulario, .input, .botao, .botao:hover {
+      width: 100%;
+      
+    }
+  
+    .filho {
+      margin-top: 80px;
+      background-color: #e6e6e6
+    }
+  
+    .formulario {
+      padding: 15px;
+    }
+  }
+  
+  /*iPhone SE */
+  @media all and (max-width: 320px) {
+    body {
+      font-size: 5px; 
+    }
+  
+    .filho, .formulario {
+      width: 95%; 
+    }
+  
+    .filho {
+      margin-top: 50px; 
+      background-color: #e6e6e6
+    }
+  
+    .formulario {
+      padding: 10px; 
+    }
+  
+    .input {
+      margin-right: 0;
+      margin-bottom: 8px; 
+    }
+  
+    .botao {
+      max-width: 120px; 
+    }
+  }

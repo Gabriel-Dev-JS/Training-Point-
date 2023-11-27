@@ -1,4 +1,4 @@
-@charset "UTF-8";
+/* Default styles */
 .pai {
   display: flex;
   flex-direction: column;
@@ -8,7 +8,8 @@
   width: 100vw;
   height: 100vh;
 }
-.pai .filho {
+
+.filho {
   width: 700px;
   height: 500px;
   border-radius: 20px;
@@ -20,7 +21,8 @@
   overflow: hidden;
   overflow-y: scroll;
 }
-.pai .cabeçalho {
+
+.cabeçalho {
   width: 100vw;
   height: 10vh;
   position: absolute;
@@ -32,23 +34,28 @@
   justify-content: space-between;
   opacity: 0.9;
 }
-.pai .formulario {
+
+.formulario {
   width: 700px;
   display: flex;
   justify-content: space-around;
 }
-.pai .input {
+
+.input {
   margin-right: 25px;
   border-radius: 5px;
 }
-.pai .botao {
+
+.botao {
   width: 100px;
   border-radius: 5px;
 }
-.pai .botao:hover {
+
+.botao:hover {
   cursor: pointer;
 }
-.pai .links {
+
+.links {
   color: #1c1c1c;
   width: 700px;
   display: flex;
@@ -57,18 +64,75 @@
   color: #1c1c1c;
 }
 
-@media only screen and (max-width: 600px) {
-  body {
-    font-size: 24px;
+/* Media queries for responsiveness */
+@media all and (max-width: 1200px) {
+  .filho, .formulario, .links {
+    width: 80%;
   }
 }
-@media only screen and (min-width: 601px) and (max-width: 1024px) {
-  body {
-    font-size: 18px;
+
+@media all and (max-width: 800px) {
+  .filho, .formulario, .links {
+    width: 90%;
+  }
+
+  .formulario {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .input {
+    margin-right: 0;
+    margin-bottom: 10px;
   }
 }
-@media only screen and (min-width: 1025px) {
+
+@media all and (max-width: 600px) {
   body {
-    font-size: 16px;
+    font-size: 7px;
   }
-}/*# sourceMappingURL=page.css.map */
+
+  .pai, .filho, .cabeçalho, .formulario, .input, .botao, .botao:hover, .links {
+    width: 100%;
+  }
+
+  .filho {
+    margin-top: 80px;
+  }
+
+  .formulario {
+    padding: 15px;
+  }
+}
+
+/*iPhone SE */
+@media all and (max-width: 320px) {
+  body {
+    font-size: 5px; 
+  }
+
+  .filho, .formulario, .links {
+    width: 95%; 
+  }
+
+  .filho {
+    margin-top: 50px; 
+  }
+
+  .formulario {
+    padding: 10px; 
+  }
+
+  .input {
+    margin-right: 0;
+    margin-bottom: 8px; 
+  }
+
+  .botao {
+    max-width: 120px; 
+  }
+}
+
+  
+
+
