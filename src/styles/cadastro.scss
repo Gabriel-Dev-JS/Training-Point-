@@ -1,0 +1,110 @@
+// Mixin para estilos de botão
+@mixin botaoEstilos {
+    cursor: pointer;
+    color: #1c1c1c;
+    margin-bottom: 40px;
+    border-radius: 20px;
+    height: 40px;
+    width: 300px;
+  
+    &:hover {
+      background-color: #6d6d6d;
+    }
+  }
+  
+  // Mixin para estilos de input
+  @mixin inputEstilos {
+    margin-bottom: 40px;
+    border-radius: 20px;
+    height: 40px;
+    width: 300px;
+  }
+  
+  // Mixin para estilos de responsividade
+  @mixin responsividade {
+    body {
+      font-size: 7px;
+    }
+  
+    .pai, .filho, .formulario, .input, .botao, .botao:hover {
+      width: 90%;
+    }
+  
+    .filho {
+      margin-top: 80px;
+    }
+  
+    .formulario {
+      padding: 15px;
+    }
+  }
+  
+  // Mixin para estilos específicos do iPhone SE
+  @mixin iphoneSE {
+    body {
+      font-size: 5px;
+    }
+  
+    .filho, .formulario {
+      width: 95%;
+    }
+  
+    .filho {
+      margin-top: 50px;
+    }
+  
+    .formulario {
+      padding: 10px;
+  
+      .input {
+        margin-right: 0;
+        margin-bottom: 8px;
+      }
+  
+      .botao {
+        max-width: 120px;
+      }
+    }
+  }
+  
+  .pai {
+    display: flex;
+    background-color: #1c1c1c;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+  
+    .filho {
+      background-color: #e6e6e6;
+      height: 600px;
+      width: 600px;
+      text-align: center;
+      color: #1c1c1c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      border-radius: 0px 80px 80px 0px;
+  
+      .formulario {
+        padding: 30px;
+  
+        .input {
+          @include inputEstilos;
+        }
+  
+        .botao {
+          @include botaoEstilos;
+        }
+      }
+    }
+  
+    @include responsividade;
+  
+    // iPhone SE
+    @media all and (max-width: 320px) {
+      @include iphoneSE;
+    }
+  }
+  

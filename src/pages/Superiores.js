@@ -50,7 +50,8 @@ const finalizar = (id) =>{
     return(
     <div className="pai">
       <div className="cabeçalho">
-          <h1 style={{marginLeft:45}}>TRAINING POINT</h1>
+          <h1 style={{marginLeft:35}}>TRAINING</h1>
+          <h1 style={{marginLeft:13}}>POINT</h1>
           <div className='links'>
               <h1 ><Link style={{color:"#1c1c1c"}} to='/Superiores'>SUPERIORES</Link> </h1>
               <h1 ><Link style={{textDecoration:"none", color:"#1c1c1c"}} to='/Inferiores'>INFERIORES</Link> </h1>

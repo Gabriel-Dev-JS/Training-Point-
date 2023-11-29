@@ -1,4 +1,4 @@
-/* Default styles */
+@charset "UTF-8";
 .pai {
   display: flex;
   flex-direction: column;
@@ -8,8 +8,7 @@
   width: 100vw;
   height: 100vh;
 }
-
-.filho {
+.pai .filho {
   width: 700px;
   height: 500px;
   border-radius: 20px;
@@ -21,8 +20,23 @@
   overflow: hidden;
   overflow-y: scroll;
 }
-
-.cabeçalho {
+.pai .filho .formulario {
+  width: 700px;
+  display: flex;
+  justify-content: space-around;
+}
+.pai .filho .formulario .input {
+  margin-right: 15px;
+  border-radius: 10px;
+}
+.pai .filho .formulario .botao {
+  width: 100px;
+  border-radius: 5px;
+}
+.pai .filho .formulario .botao:hover {
+  cursor: pointer;
+}
+.pai .cabeçalho {
   width: 100vw;
   height: 10vh;
   position: absolute;
@@ -34,28 +48,7 @@
   justify-content: space-between;
   opacity: 0.9;
 }
-
-.formulario {
-  width: 700px;
-  display: flex;
-  justify-content: space-around;
-}
-
-.input {
-  margin-right: 25px;
-  border-radius: 5px;
-}
-
-.botao {
-  width: 100px;
-  border-radius: 5px;
-}
-
-.botao:hover {
-  cursor: pointer;
-}
-
-.links {
+.pai .links {
   color: #1c1c1c;
   width: 700px;
   display: flex;
@@ -63,76 +56,57 @@
   text-decoration: none;
   color: #1c1c1c;
 }
-
-/* Media queries for responsiveness */
-@media all and (max-width: 1200px) {
-  .filho, .formulario, .links {
-    width: 80%;
-  }
+.pai .filho, .pai .formulario, .pai .links {
+  width: 80%;
 }
-
 @media all and (max-width: 800px) {
-  .filho, .formulario, .links {
+  .pai .filho, .pai .formulario, .pai .links {
     width: 90%;
   }
-
-  .formulario {
+  .pai .formulario {
     flex-direction: column;
     align-items: center;
   }
-
-  .input {
+  .pai .formulario .input {
     margin-right: 0;
     margin-bottom: 10px;
   }
 }
-
 @media all and (max-width: 600px) {
-  body {
-    font-size: 7px;
+  .pai body {
+    font-size: 18px;
   }
-
-  .pai, .filho, .cabeçalho, .formulario, .input, .botao, .botao:hover, .links {
-    width: 100%;
+  .pai .pai, .pai .filho, .pai .cabeçalho, .pai .formulario, .pai .input, .pai .botao, .pai .botao:hover, .pai .links {
+    width: 70%;
   }
-
-  .filho {
+  .pai .filho {
     margin-top: 80px;
   }
-
-  .formulario {
+  .pai .formulario {
     padding: 15px;
   }
 }
-
-/*iPhone SE */
 @media all and (max-width: 320px) {
-  body {
-    font-size: 5px; 
+  .pai body {
+    font-size: 18px;
   }
-
-  .filho, .formulario, .links {
-    width: 95%; 
+  .pai .filho, .pai .formulario, .pai .links {
+    width: 50%;
   }
-
-  .filho {
-    margin-top: 50px; 
+  .pai .filho {
+    margin-top: 10px;
   }
-
-  .formulario {
-    padding: 10px; 
+  .pai .formulario {
+    padding: 15px;
   }
-
-  .input {
+  .pai .formulario .input {
     margin-right: 0;
-    margin-bottom: 8px; 
+    margin-bottom: 8px;
   }
-
-  .botao {
-    max-width: 120px; 
+  .pai .formulario .botao {
+    max-width: 120px;
   }
 }
 
+
   
-
-
