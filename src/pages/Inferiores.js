@@ -1,49 +1,78 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import Interface from '../components/Interface'
+import { api } from '../services/api'
 
 
 const Inferiores = () => {
+  const idUsuario = localStorage.getItem("usuario");
 
-    const [exercicio, setExercicio] = useState("")
-    const [serie, setSerie] = useState("")
-    const [repeticao, setRepeticao] = useState("")
-    const [treino, setTreino] = useState([
-    {
-      id:1,
-      exercicio:exercicio,
-      repeticao:repeticao,
-      serie:serie,
-      finalizada:false
-    }
-  ])  
+  const [exercicio, setExercicio] = useState("")
+  const [serie, setSerie] = useState("")
+  const [repeticao, setRepeticao] = useState("")
+  const [treino, setTreino] = useState([])  
 
-  const enviar = (e) =>{  
+  const enviar = async (e) =>{  
     e.preventDefault()
-    const treinar = [...treino,{
-      id: Math.ceil(Math.random() * 100),
-      exercicio,
-      repeticao,
-      serie,
-      finalizada: false
-    }]
-    setTreino(treinar)
+
+    try{
+      await api.post('/exercicios',{exercicio, serie, repeticao, tipo:"INFERIORES", idUsuario},{
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      })
+
+      const treinar = [...treino,{
+        exercicio,
+        repeticao,
+        serie,
+        tipo: "INFERIORES",
+        finalizada: false
+      }]
+
+      setTreino(treinar)
+    }catch(err){
+      alert(err.response.data.error)
+    }
+
     setExercicio("")
     setRepeticao("")
     setSerie("")
+  }
+
+  const remover = async (id) =>{
+    try{
+      await api.delete(`/usuarios/${idUsuario}/exercicios/${id}`,{
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      })
+      
+      const treinar = [...treino]
+      const filtro = treinar.filter((deletar) => deletar.idExercicio !== id)
+      setTreino(filtro)
+    }catch(err){
+      alert(err.response.data.error)
+    }
+  }
+
+const listar = async () => {
+  try{
+    const chamada = await api.get(`/usuarios/${idUsuario}/exercicios/INFERIORES`,{
+      headers: {
+        'Content-Type': 'application/json'
+    },
+    })
+
+    setTreino(chamada.data.exercicios)
+  }catch(err){
+    alert(err.response.data.error)
+  }
 }
 
-const remover = (id) =>{
-  const treinar = [...treino]
-  const filtro = treinar.filter((deletar) => deletar.id !== id ? deletar : null)
-  setTreino(filtro)
-}
-
-const finalizar = (id) =>{
-  const treinar = [...treino]
-  treinar.map((finish) => (finish.id !== id ? finish.finalizada === true : finish.finalizada === false))
-  setTreino(treinar)
-}
+useEffect(() => {
+  listar()
+}, [])
 
     return(
     <div className="pai">
@@ -58,7 +87,7 @@ const finalizar = (id) =>{
       <div className="filho">
           <div style={{textAlign:"center"}}><h1>INFERIOR</h1></div>
             {treino.map((tr)=>(
-              <Interface key={tr.id} tr={tr} remover={remover} finalizar={finalizar}/>
+              <Interface key={tr.id} tr={tr} remover={remover} />
             ))}     
       </div>                                                                                                
       <div className='formulario'>

@@ -1,4 +1,4 @@
-const Interface = ({tr, remover,finalizar}) =>{
+const Interface = ({tr, remover}) =>{
     
     return(
         <div>
@@ -6,7 +6,7 @@ const Interface = ({tr, remover,finalizar}) =>{
             <p>REPETIÇÃO: {tr.repeticao}</p>
             <p>SERIE: {tr.serie}</p>
             <button className='botao'>ENCERRADA</button>
-            <button className='botao'>APAGAR</button>
+            <button className='botao' onClick={async () => await remover(tr.idExercicio)}>APAGAR</button>
             <hr/>
         </div>  
     )
